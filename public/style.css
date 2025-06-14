@@ -1,0 +1,176 @@
+/* public/style.css */
+:root {
+    --primary-bg: #1a1a1a; /* Darker background */
+    --secondary-bg: #2c2c2c; /* Slightly lighter for elements */
+    --primary-text: #e0e0e0;
+    --accent-color: #007bff; /* Professional blue */
+    --accent-hover: #0056b3;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --border-color: #444;
+    --video-bg: #000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 10px; /* Reduced padding */
+}
+
+header, main, footer {
+    width: 100%;
+    max-width: 1200px; /* Max width for content */
+    text-align: center;
+}
+
+header h1 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between main sections */
+}
+
+#room-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#roomName {
+    padding: 12px; /* Increased padding */
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--primary-bg); /* Match body background */
+    color: var(--primary-text);
+    font-size: 1em;
+}
+
+#roomName:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+button { /* General button styling */
+    padding: 12px 20px; /* Increased padding */
+    border-radius: 5px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#statusMessages {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--secondary-bg);
+    border-radius: 5px;
+    min-height: 2.5em; /* Ensure space for text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 600px; /* Control width of status */
+}
+
+#statusText {
+    margin: 0;
+    font-style: italic;
+}
+
+#video-area {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    gap: 20px;
+    width: 100%; /* Take full width of main */
+}
+
+.video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--video-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    width: calc(50% - 20px); /* Default for two videos */
+    min-width: 300px; /* Minimum width before wrapping */
+    max-width: 600px;
+}
+
+video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px; /* Rounded corners for video element itself */
+}
+
+.video-label {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: var(--primary-text);
+}
+
+#call-controls {
+    margin-top: 10px;
+}
+
+#hangupButton {
+    background-color: var(--error-color);
+}
+#hangupButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+footer {
+    margin-top: auto; /* Push footer to bottom */
+    padding: 20px 0;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .video-wrapper {
+        width: 100%; /* Stack videos on smaller screens */
+        max-width: 500px; /* Adjust max width for single column */
+    }
+
+    #room-controls {
+        flex-direction: column;
+        width: 90%;
+    }
+    #roomName, #joinButton {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

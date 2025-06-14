@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Video Call</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ConnectSphere</h1> <!-- Changed title -->
+    </header>
+
+    <main>
+        <div id="room-controls">
+            <input type="text" id="roomName" placeholder="Enter Room Name">
+            <button id="joinButton">Join or Create Room</button>
+        </div>
+
+        <div id="statusMessages">
+            <p id="statusText">Enter a room name and click 'Join' to start.</p>
+        </div>
+
+        <div id="video-area">
+            <div class="video-wrapper">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <p class="video-label">Your Video</p>
+            </div>
+            <div class="video-wrapper">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <p class="video-label">Remote Video</p>
+            </div>
+        </div>
+
+        <div id="call-controls">
+            <!-- Buttons like Mute, Video Off can be added here later -->
+            <button id="hangupButton" style="display: none;">Leave Call</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by WebRTC</p>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
